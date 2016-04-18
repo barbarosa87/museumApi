@@ -2,6 +2,18 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
-<web-app>
+<web-app >
+  
   <display-name>museumWebAppi</display-name>
+  
+  <servlet>
+		<servlet-name>museumApp</servlet-name>
+		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>museumApp</servlet-name>
+		<url-pattern>/museum/*</url-pattern>
+	</servlet-mapping>
+  
 </web-app>

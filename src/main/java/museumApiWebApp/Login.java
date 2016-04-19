@@ -13,7 +13,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.json.JSONObject;
+
+import objects.LoginObj;
 
 @Path("/login")
 public class Login {
@@ -21,13 +22,13 @@ public class Login {
 	 @POST
 	 @Produces(MediaType.APPLICATION_JSON)
 	 @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	 public Response authentication(@FormParam("userName") String userName,@FormParam("password") String password){
+	 public LoginObj authentication(@FormParam("userName") String userName,@FormParam("password") String password){
 		   
 		  String retrievedUserName = "";
 		  String retrievedPassword = "";
 		  String status = "";
 		  String jsonResponse="";		  
-
+		  LoginObj loginObj=new LoginObj();
 		  try{
 		    
 		   Class.forName("com.mysql.jdbc.Driver");
@@ -41,24 +42,24 @@ public class Login {
 		    }
 		    
 		   if(retrievedUserName.equals(userName)&&retrievedPassword.equals(password)){
-		    status = "Success!";
+			   loginObj.setStatus("success");
 		   }
 		    
 		   else{
-		    status = "Login fail!!!";
+			   loginObj.setStatus("Login fail");
 		   }
 		   
-		   JSONObject jsonObject = new JSONObject();
-		   jsonObject.put("status", status);
-		   jsonResponse = "@Produces(\"application/json\")" + jsonObject;
+		
 		  }
 		  catch(Exception e){
 		   e.printStackTrace();
-		   return Response.serverError().build();
+		   loginObj.setStatus("Login fail!!!");
+		   return loginObj;
 		  }
 		  //Response response=Response.status(Response.Status.ACCEPTED).entity(jsonResponse).build();
 		 // System.out.println(response.getEntity().toString());
-		  return Response.ok(jsonResponse,MediaType.APPLICATION_JSON).build();
+		  //return Response.status(200).entity(jsonResponse).build();
+		  return loginObj;
 		  //return Response.created(location)
 		  
 		 }

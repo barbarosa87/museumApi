@@ -35,6 +35,7 @@ public class Login {
 		   Connection con = DriverManager.getConnection("jdbc:mysql://museum.ddns.net:3306/mydb","remote","121314");
 		   PreparedStatement statement =  con.prepareStatement("SELECT * FROM user WHERE username = '"+userName+"'");
 		   ResultSet result = statement.executeQuery();
+		   
 		    
 		   while(result.next()){
 		    retrievedUserName = result.getString("username");

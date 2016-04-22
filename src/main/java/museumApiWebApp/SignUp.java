@@ -39,7 +39,7 @@ public class SignUp {
 		   PreparedStatement statement =  con.prepareStatement("INSERT INTO user (name, surname, country, address, phone, mobile_phone, email, username, password)"
 		   		+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)");
 		   statement.setString(1, Name);
-		   statement.setString(2,Surname);
+		   statement.setString(2, Surname);
 		   statement.setString(3, Country);
 		   statement.setString(4, Address);
 		   statement.setString(5, Phone);
@@ -60,7 +60,7 @@ public class SignUp {
 			   user.setCountry(result.getString("country"));
 			   user.setAddress(result.getString("address"));
 			   user.setPhone(result.getString("phone"));
-			   user.setMobilephone(result.getString("mobile_phone"));
+			   user.setMobilePhone(result.getString("mobile_phone"));
 			   user.setEmail(result.getString("email"));
 			   user.setUsername(result.getString("username"));
 			   user.setPassword(result.getString("password"));

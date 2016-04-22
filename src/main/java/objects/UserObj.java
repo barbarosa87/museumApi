@@ -1,88 +1,108 @@
 package objects;
 
 public class UserObj {
-private int Id;
-private String Name="";
-private String Surname="";
-private String Country="";
-private String Address="";
-private String Phone="";
-private String Mobilephone="";
-private String Email="";
-private String Username="";
-private String Password="";
+private int id;
+private String name="";
+private String surname="";
+private String country="";
+private String address="";
+private String phone="";
+private String mobilePhone="";
+private String email="";
+private String username="";
+private String password="";
+
 public int getId() {
-	return Id;
+	return id;
 }
+
 public void setId(int id) {
-	Id = id;
+	this.id = id;
 }
+
 public String getName() {
-	return Name;
+	return name;
 }
+
 public void setName(String name) {
-	Name = name;
+	this.name = name;
 }
+
 public String getSurname() {
-	return Surname;
+	return surname;
 }
+
 public void setSurname(String surname) {
-	Surname = surname;
+	this.surname = surname;
 }
+
 public String getCountry() {
-	return Country;
+	return country;
 }
+
 public void setCountry(String country) {
-	Country = country;
+	this.country = country;
 }
+
 public String getAddress() {
-	return Address;
+	return address;
 }
+
 public void setAddress(String address) {
-	Address = address;
+	this.address = address;
 }
+
 public String getPhone() {
-	return Phone;
+	return phone;
 }
+
 public void setPhone(String phone) {
-	Phone = phone;
+	this.phone = phone;
 }
-public String getMobilephone() {
-	return Mobilephone;
+
+public String getMobilePhone() {
+	return mobilePhone;
 }
-public void setMobilephone(String mobilephone) {
-	Mobilephone = mobilephone;
+
+public void setMobilePhone(String mobilePhone) {
+	this.mobilePhone = mobilePhone;
 }
+
 public String getEmail() {
-	return Email;
+	return email;
 }
+
 public void setEmail(String email) {
-	Email = email;
+	this.email = email;
 }
+
 public String getUsername() {
-	return Username;
+	return username;
 }
+
 public void setUsername(String username) {
-	Username = username;
+	this.username = username;
 }
+
 public String getPassword() {
-	return Password;
+	return password;
 }
+
 public void setPassword(String password) {
-	Password = password;
+	this.password = password;
 }
 
 @Override
 public String toString(){
-	  return new StringBuffer(" Id : ").append(this.Id)
-			  .append(" Name :  ").append(this.Name)
-			  .append(" Surname : ").append(this.Surname)
-			  .append(" Country : ").append(this.Country)
-			  .append(" Address : ").append(this.Address)
-			  .append(" Phone : ").append(this.Phone)
-			  .append(" Mobilephone : ").append(this.Mobilephone)
-			  .append(" Email : ").append(this.Email)
-			  .append(" Username : ").append(this.Username)
-			  .append(" Password : ").append(this.Password).toString();
+	  return new StringBuffer(" id : ").append(this.id)
+			  .append(" name :  ").append(this.name)
+			  .append(" surname : ").append(this.surname)
+			  .append(" country : ").append(this.country)
+			  .append(" address : ").append(this.address)
+			  .append(" phone : ").append(this.phone)
+			  .append(" mobilePhone : ").append(this.mobilePhone)
+			  .append(" email : ").append(this.email)
+			  .append(" username : ").append(this.username)
+			  .append(" password : ").append(this.password).toString();
 }
 }

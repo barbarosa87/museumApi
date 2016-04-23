@@ -14,7 +14,6 @@ import javax.ws.rs.core.MediaType;
 import objects.UserObj;
 
 
-@Path("/signUp")
 public class SignUp {
 	
 	@POST

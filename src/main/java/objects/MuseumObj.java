@@ -1,5 +1,7 @@
 package objects;
 
+import java.util.ArrayList;
+
 public class MuseumObj {
 	
 	private int id;
@@ -11,6 +13,18 @@ public class MuseumObj {
 	private String picture1="";
 	private String picture2="";
 	private String picture3="";
+	
+	ArrayList<ExhibitObj> exhibits = new ArrayList<ExhibitObj>();
+	
+	
+	
+	
+	public ArrayList<ExhibitObj> getExhibits() {
+		return exhibits;
+	}
+	public void setExhibits(ArrayList<ExhibitObj> exhibits) {
+		this.exhibits = exhibits;
+	}
 	public int getId() {
 		return id;
 	}

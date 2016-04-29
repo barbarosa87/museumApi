@@ -2,10 +2,12 @@ package objects;
 
 import java.util.ArrayList;
 
-public class MuseumObj {
+public class SiteObj {
 	
 	private int id;
+	private String type="";
 	private String name="";
+	private String beacon_enabled="0";
 	private String address="";
 	private String latitude="";
 	private String longitude="";
@@ -31,11 +33,25 @@ public class MuseumObj {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getBeacon_enabled() {
+		return beacon_enabled;
+	}
+	public void setBeacon_enabled(String beacon_enabled) {
+		this.beacon_enabled = beacon_enabled;
 	}
 	public String getLatitude() {
 		return latitude;
@@ -83,8 +99,10 @@ public class MuseumObj {
 	@Override
 	public String toString(){
 		  return new StringBuffer(" id : ").append(this.id)
+				  .append(" type :  ").append(this.type)
 				  .append(" name :  ").append(this.name)
 				  .append(" address :  ").append(this.address)
+				  .append(" beacon_enabled : ").append(this.beacon_enabled)
 				  .append(" latitude : ").append(this.latitude)
 				  .append(" longitude : ").append(this.longitude)
 				  .append(" information : ").append(this.information)

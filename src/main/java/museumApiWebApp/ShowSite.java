@@ -17,39 +17,41 @@ import com.google.gson.Gson;
 
 import objects.ExchibitContentObj;
 import objects.ExhibitObj;
-import objects.MuseumObj;
+import objects.SiteObj;
 
-@Path("/museums")
-public class ShowMuseum {
+@Path("/sites")
+public class ShowSite {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getMuseums() {
-		ArrayList<MuseumObj> museumsList = new ArrayList<MuseumObj>();
+		ArrayList<SiteObj> siteList = new ArrayList<SiteObj>();
 		Gson gson = new Gson();
 		try {
 
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://museum.ddns.net:3306/mydb", "remote", "121314");
-			PreparedStatement statement = con.prepareStatement("SELECT * FROM museum");
+			PreparedStatement statement = con.prepareStatement("SELECT * FROM site");
 			ResultSet result = statement.executeQuery();
 
 			while (result.next()) {
 
-				MuseumObj museum = new MuseumObj();
+				SiteObj site = new SiteObj();
 
-				museum.setId(result.getInt("id"));
-				museum.setName(result.getString("name"));
-				museum.setAddress(result.getString("address"));
-				museum.setLatitude(result.getString("latitude"));
-				museum.setLongitude(result.getString("longitude"));
-				museum.setInformation(result.getString("information"));
-				museum.setPicture1(result.getString("picture1"));
-				museum.setPicture2(result.getString("picture2"));
-				museum.setPicture3(result.getString("picture3"));
+				site.setId(result.getInt("id"));
+				site.setType(result.getString("type"));
+				site.setBeacon_enabled(result.getString("beacon_enabled"));
+				site.setName(result.getString("name"));
+				site.setAddress(result.getString("address"));
+				site.setLatitude(result.getString("latitude"));
+				site.setLongitude(result.getString("longitude"));
+				site.setInformation(result.getString("information"));
+				site.setPicture1(result.getString("picture1"));
+				site.setPicture2(result.getString("picture2"));
+				site.setPicture3(result.getString("picture3"));
 
 				PreparedStatement statement2 = con.prepareStatement("SELECT * FROM exhibit WHERE id=?");
-				statement2.setString(1, String.valueOf(museum.getId()));
+				statement2.setString(1, String.valueOf(site.getId()));
 				ResultSet result2 = statement2.executeQuery();
 				
 				ArrayList<ExhibitObj> exhibitList=new ArrayList<ExhibitObj>();
@@ -83,12 +85,12 @@ public class ShowMuseum {
 					exhibitList.add(exhibit);
 					
 				}
-				museum.setExhibits(exhibitList);
-				museumsList.add(museum);
+				site.setExhibits(exhibitList);
+				siteList.add(site);
 			}
 
-			//return museumsList;
-			return gson.toJson(museumsList);
+			
+			return gson.toJson(siteList);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "";
